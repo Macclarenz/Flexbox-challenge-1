@@ -1,0 +1,231 @@
+:root {
+    --primary-white: #F3EED9;
+    --primary-brown: #824936;
+    --primary-black: #222C2A;
+
+    --playfair: 'Playfair Display', serif;
+    --roboto: 'Roboto', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Roboto:wght@300;400&display=swap');
+
+
+/*  maximum width of a “container” is 1128px */
+
+/*  in the cery first section try setting a min-height 
+    of 660px and using what we’ve covered in
+    flexbox to center the content vertically */
+
+/*  roboto light - 18px 
+    roboto regular - 21px 
+    playfair black h1 - 60px 
+    playfair black h3 - 36px */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header {
+    background-color: var(--primary-white);
+}
+
+.container { 
+    height: 100vh;
+    max-height: 1000px;
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.container :is(p, h1) {
+    text-align: center;
+    max-width: 800px;
+}
+
+.container p {
+    font-family: var(--roboto);
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--primary-black);
+    letter-spacing: 3pt;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+}
+
+header h1 {
+    font-family: var(--playfair);
+    font-weight: 900;
+    font-size: 60px;
+    color: var(--primary-brown);
+    width: 25ch;
+}
+
+/* MAIN CONTENT */
+
+.main {
+    
+}
+
+.white-detail {
+    background-color: white;
+}
+
+.black-detail {
+    background-color: var(--primary-black);
+}
+
+.brown-detail {
+    background-color: var(--primary-brown);
+}
+
+.white-detail,
+.black-detail,
+.brown-detail {
+    padding-block: 5rem;
+}
+
+.black-detail .detail,
+.brown-detail .detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+}
+
+.detail {
+    width: 70%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.detail > img {
+    height: auto;
+    width: 50%;
+}
+
+.detail h3 {
+    font-size: 36px;
+    font-family: var(--playfair);
+    font-weight: 900;
+    margin-bottom: 1em;
+}
+
+.detail p {
+    font-size: 21px;
+    font-family: var(--playfair);
+    font-weight: 400;
+}
+
+/* first detail */
+
+.white-detail h3 {
+    text-align: center;
+    color: var(--primary-brown);
+}
+
+.two-paragraph {
+    display: flex;
+}
+
+.two-paragraph p + p{
+    margin-left: 2em;
+}
+
+/* second & third detail */
+
+.text-detail {
+    width: 50%;
+    margin-right: 2em;
+    color: white;
+}
+
+#third-detail {
+    flex-direction: row-reverse;
+}
+
+#third-detail .text-detail {
+    margin-left: 2em;
+    margin-right: 0;
+}
+
+@media screen and (max-width: 768px){
+    .container h1 {
+        width: 90%;
+    }
+
+    .detail h3 {
+        text-align: center;
+        
+    }
+
+    .text-detail {
+        text-align: justify;
+    }
+
+    .detail > img {
+        width: 50%;
+        align-self: center;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+    .main p{
+        font-size: 20px;
+    }
+
+    .main h3 {
+        font-size: 30px;
+    }
+
+    header p{
+        font-size: 14px;
+    }
+
+    header h1 {
+        font-size: 50px;
+    }
+
+    .two-paragraph {
+        flex-flow: column wrap;
+        text-align: justify;
+    }
+
+    .two-paragraph p + p {
+        margin-left: 0;
+        margin-top: 1em;
+    }
+
+    .detail > img {
+        width: 80%;
+    }
+
+    .black-detail .detail,
+    .brown-detail .detail {
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .text-detail {
+        margin-inline: 0;
+        margin-block: 2em;
+        width: 80%;
+    }
+
+    #third-detail {
+        flex-flow: column-reverse wrap;
+    }
+
+    #third-detail .text-detail {
+        margin-left: 0;
+    }
+}
